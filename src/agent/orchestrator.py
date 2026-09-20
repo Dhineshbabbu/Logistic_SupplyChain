@@ -1,4 +1,5 @@
 import os
+import streamlit as st
 from pathlib import Path
 from dotenv import load_dotenv
 from typing import Annotated, TypedDict
@@ -28,8 +29,14 @@ class AgentState(TypedDict):
 #============================
 # 2. Agent Reasoning LLM
 #============================
+
+GROQ_API_KEY = st.secrets.get(
+    "GROQ_API_KEY",
+    os.getenv("GROQ_API_KEY")
+)
+
 llm = ChatGroq(model="openai/gpt-oss-120b",
-                     api_key=os.getenv("GROQ_API_KEY"))
+                     api_key=GROQ_API_KEY)
 
 # Bind the tools with llm
 llm = llm.bind_tools([retrieve_from_postgres,retrieve_from_pinecone,fetch_weather_conditions])

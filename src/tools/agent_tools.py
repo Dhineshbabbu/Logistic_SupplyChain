@@ -1,4 +1,5 @@
 import os
+import streamlit as st
 import re
 import requests
 from pathlib import Path
@@ -17,13 +18,16 @@ project_root = Path(__file__).resolve().parent.parent.parent
 print(f"Project Root: {project_root}")
 load_dotenv(dotenv_path=project_root / ".env")
 
-PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+PINECONE_API_KEY = st.secrets.get(
+    "PINECONE_API_KEY",
+    os.getenv("PINECONE_API_KEY")
+)
 
-db_host = os.getenv("DB_HOST")
-db_port = os.getenv("DB_PORT")
-db_name = os.getenv("DB_NAME")
-db_user = os.getenv("DB_USER")
-db_password = os.getenv("DB_PASSWORD")
+db_host = st.secrets.get("DB_HOST", os.getenv("DB_HOST"))
+db_port = st.secrets.get("DB_PORT", os.getenv("DB_PORT"))
+db_name = st.secrets.get("DB_NAME", os.getenv("DB_NAME"))
+db_user = st.secrets.get("DB_USER", os.getenv("DB_USER"))
+db_password = st.secrets.get("DB_PASSWORD", os.getenv("DB_PASSWORD"))
 
 if not PINECONE_API_KEY:
     raise ValueError("PINECONE_API_KEY is not set in the environment variables.")
