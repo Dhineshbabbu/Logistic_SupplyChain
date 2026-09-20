@@ -1,6 +1,4 @@
 # Python 3.12.13
-altair
-faiss-cpu
 langchain_core
 langchain_community
 langchain_huggingface
@@ -8,18 +6,10 @@ langchain-openai
 langchain-pinecone
 langgraph
 langchain_groq
-langsmith
-openai
-openpyxl
 pandas
 pinecone
 pydantic-settings
-pyodbc
-pypdf
 python-dotenv
-scikit-learn
-sentence-transformers
 SQLAlchemy
 streamlit
-torch
 psycopg2-binary
