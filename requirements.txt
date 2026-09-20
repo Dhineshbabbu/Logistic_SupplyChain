@@ -22,4 +22,4 @@ sentence-transformers
 SQLAlchemy
 streamlit
 torch
-psycopg2
+psycopg2-binary
