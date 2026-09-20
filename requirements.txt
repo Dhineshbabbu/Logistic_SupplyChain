@@ -8,6 +8,7 @@ langgraph
 langchain_groq
 pandas
 pinecone
+sentence-transformers
 pydantic-settings
 python-dotenv
 SQLAlchemy
