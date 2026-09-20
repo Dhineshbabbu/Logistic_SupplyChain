@@ -5,7 +5,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, AIMessage
 
-from src.agent.orchestrator import graph
+from agent.orchestrator import graph
 
 
 # =====================================================
